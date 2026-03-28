@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="src/output.css" rel="stylesheet" />
+  </head>
+  <body class="flex min-h-screen items-center justify-center bg-gray-100">
+    <div
+      class="flex absolute h-96 w-[600px] overflow-hidden rounded-lg border border-black shadow-2xl"
+    >
+      <div
+        class="md:block md:h-1/1 md:w-60 bg-cover bg-center p-10 relative"
+        style="
+          background-image: url(&quot;assets/ocean-waves-aerial-view-ocean-water-drone-photo-3665x2443-317.jpg&quot;);
+        "
+      >
+        <div
+          class="relative h-full flex flex-col justify-center items-center text-white text-center"
+        >
+          <!-- Letakkan logo atau teks di sini -->
+          <img class="max-w-50" src="assets/modern-whale.png" alt="Logo" />
+        </div>
+      </div>
+
+      <div class="flex flex-col p-10 justify-center bg-[#F9F9F9]">
+        <input
+          id="username"
+          class="block w-70 border border-gray-300 rounded-md p-2 focus:ring-indigo-500 focus:border-indigo-500"
+          type="text"
+          placeholder="Masukan username"
+        />
+        <input
+          id="password"
+          class="block mt-10 w-70 border border-gray-300 rounded-md p-2 focus:ring-indigo-500 focus:border-indigo-500"
+          type="password"
+          placeholder="Masukan password"
+        />
+        <a class="mt-3 p-0 underline text-blue-600 text-[12px]" href="#">Recovery password</a>
+        <a class="p-0 underline text-blue-600 text-[12px]" href="#">Sign up</a>
+        <button class="bg-[#FF6F61] w-auto rounded-2xl mt-10 hover:bg-red-300 cursor-pointer">Sign in</button>
+      </div>
+    </div>
+  </body>
+</html>

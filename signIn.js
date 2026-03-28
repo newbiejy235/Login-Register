@@ -1,0 +1,51 @@
+const checkbox = document.getElementById("menu-toggle");
+const toggleText = document.getElementById("toggleText");
+const mainButton = document.getElementById("mainButton");
+const secondButton = document.getElementById("secondButton");
+
+const userInput = document.getElementById("username");
+const passInput = document.getElementById("password");
+
+secondButton.hidden = true;
+mainButton.hidden = false;
+
+checkbox.addEventListener("change", function () {
+  if (this.checked) {
+    mainButton.hidden = true;
+    secondButton.hidden = false;
+    userInput.value = "";
+    passInput.value = "";
+    toggleText.textContent = "Sign in";
+  } else {
+    secondButton.hidden = true;
+    mainButton.hidden = false;
+    userInput.value = "";
+    passInput.value = "";
+    toggleText.textContent = "Sign up";
+  }
+});
+
+async function getDataIn() {
+  const userInput = document.getElementById("username").value;
+  const passInput = document.getElementById("password").value;
+  if (!userInput || !passInput) return alert("tidak boleh kosong");
+
+  try {
+    const res = await fetch("http://localhost:4000/signIn", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: userInput, password: passInput }),
+    });
+
+    const data = await res.json();
+
+    if (data.status) {
+      alert("login berhasil");
+    } else {
+      alert("logiin gagal");
+    }
+  } catch (error) {
+    console.error("Gagal koneksi:", error);
+    alert("Gagal terhubung ke server. Pastikan backend sudah jalan.");
+  }
+}
