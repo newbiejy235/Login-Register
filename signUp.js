@@ -1,7 +1,17 @@
 async function getDataUp() {
   const userInput = document.getElementById("username").value;
   const passInput = document.getElementById("password").value;
-  if (!userInput || !passInput) return alert("tidak boleh kosong");
+  if (!userInput || !passInput) return alert("harap isi semua kolom");
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(userInput)) {
+    return alert("Format email tidak valid!");
+  }
+
+  // Validasi harus gmail
+  if (!userInput.endsWith("@gmail.com")) {
+    return alert("Harus menggunakan email Gmail!");
+  }
 
   try {
     const res = await fetch("http://localhost:4000/signUp", {
@@ -15,7 +25,7 @@ async function getDataUp() {
     if (data.status) {
       alert("Akun berhasil di buat");
     } else {
-      alert("Akun gagal di buat, username sudah ada");
+      alert("Akun gagal di buat, Email sudah terdaftar");
     }
   } catch (error) {
     console.error("Gagal koneksi:", error);
