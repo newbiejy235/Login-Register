@@ -14,22 +14,27 @@ SEND.addEventListener("click", async (e) => {
     return alert("Harus menggunakan email Gmail!");
   }
 
-  // Panggil endpoint kirim email
-  const response = await fetch(
-    "https://login-register-production-af71.up.railway.app/request-reset",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username: userInput }),
-    },
-  );
+  try {
+    // Panggil endpoint kirim email
+    // https://login-register-production-af71.up.railway.app/
+    const response = await fetch(
+      "https://login-register-production-af71.up.railway.app/request-reset",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: userInput }),
+      },
+    );
 
-  const data = await response.json();
+    const data = await response.json();
 
-  if (response.ok) {
-    alert("Cek email kamu untuk kode verifikasi!");
-  } else {
-    alert(data.message); // Akan tampil "User tidak ditemukan"
+    if (response.ok) {
+      alert("Cek email kamu untuk kode verifikasi!");
+    } else {
+      alert(data.message); // Akan tampil "User tidak ditemukan"
+    }
+  } catch (error) {
+    console.error("message error", error);
   }
 });
 
