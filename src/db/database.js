@@ -13,4 +13,14 @@ const db = mysql2.createPool({
   connectionLimit: 10,
 });
 
+// Test koneksi saat server baru nyala
+db.getConnection((err, connection) => {
+  if (err) {
+    console.error("❌ GAGAL KONEK DATABASE:", err.message);
+  } else {
+    console.log("✅ DATABASE BERHASIL TERHUBUNG!");
+    connection.release();
+  }
+});
+
 module.exports = db;
