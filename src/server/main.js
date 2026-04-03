@@ -6,17 +6,13 @@ const app = express();
 const nodemailer = require("nodemailer");
 let tempToken = "";
 const PORT = process.env.DB_PORT || 4000;
-const path = require('path');
+const path = require("path");
 
 // Tambah ini biar HTML bisa diakses
-app.use(express.static(path.join(__dirname, '../../')));
+app.use(express.static(path.join(__dirname, "../../")));
 
 app.use(CorsMiddleware);
 app.use(express.json());
-
-app.get("/", (req, res) => {
-  response(200, "WELCOME TO WORLD EXPEDITION (WE) 😁", "", true, res);
-});
 
 app.post("/signIn", (req, res) => {
   const { username, password } = req.body;
