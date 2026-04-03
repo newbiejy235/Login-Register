@@ -5,7 +5,7 @@ const db = require("../db/database");
 const app = express();
 const nodemailer = require("nodemailer");
 let tempToken = "";
-const PORT = process.env.DB_PORT || 4000;
+const PORT = process.env.PORT || 4000;
 const path = require("path");
 
 // Tambah ini biar HTML bisa diakses
