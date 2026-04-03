@@ -43,9 +43,14 @@ app.post("/signUp", (req, res) => {
 // UNTUK SEND EMAIL
 const transporter = nodemailer.createTransport({
   service: "gmail",
+  host: "://gmail.com",
+  port: 465,
+  secure: true, // Pakai SSL
   auth: {
     user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS,
+    pass: process.env.GMAIL_PASS
+      ? process.env.GMAIL_PASS.replace(/\s+/g, "")
+      : "",
   },
 });
 
