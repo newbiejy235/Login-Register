@@ -16,7 +16,7 @@ SEND.addEventListener("click", async (e) => {
 
   // Panggil endpoint kirim email
   const response = await fetch(
-    "https://login-register-production-2f56.up.railway.app/request-reset",
+    "https://login-register-production-af71.up.railway.app/request-reset",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -41,7 +41,7 @@ async function getVerif() {
     return alert("please fill in all columns");
 
   try {
-    const URL = "https://login-register-production-2f56.up.railway.app/changes";
+    const URL = "https://login-register-production-af71.up.railway.app/changes";
     const response = await fetch(URL, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

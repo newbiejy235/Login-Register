@@ -15,7 +15,7 @@ async function getDataUp() {
 
   try {
     const res = await fetch(
-      "https://login-register-production-2f56.up.railway.app/signUp",
+      "https://login-register-production-af71.up.railway.app/signUp",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

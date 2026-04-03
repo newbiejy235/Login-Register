@@ -42,7 +42,7 @@ async function getDataIn() {
 
   try {
     const res = await fetch(
-      "https://login-register-production-2f56.up.railway.app/signIn",
+      "https://login-register-production-af71.up.railway.app/signIn",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
