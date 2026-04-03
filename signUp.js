@@ -14,11 +14,14 @@ async function getDataUp() {
   }
 
   try {
-    const res = await fetch("http://localhost:4000/signUp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username: userInput, password: passInput }),
-    });
+    const res = await fetch(
+      "https://login-register-production-2f56.up.railway.app/signUp",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: userInput, password: passInput }),
+      },
+    );
 
     const data = await res.json();
 

@@ -41,16 +41,19 @@ async function getDataIn() {
   }
 
   try {
-    const res = await fetch("http://localhost:4000/signIn", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username: userInput, password: passInput }),
-    });
+    const res = await fetch(
+      "https://login-register-production-2f56.up.railway.app/signIn",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: userInput, password: passInput }),
+      },
+    );
 
     const data = await res.json();
 
     if (data.status) {
-      window.location.href = "https://newbiejy235.github.io/HomePage/"
+      window.location.href = "https://newbiejy235.github.io/HomePage/";
     } else {
       alert(data.message);
     }
