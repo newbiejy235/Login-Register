@@ -50,9 +50,9 @@ async function getDataIn() {
     const data = await res.json();
 
     if (data.status) {
-      alert("login berhasil");
+      window.location.href = "https://newbiejy235.github.io/HomePage/"
     } else {
-      alert("logiin gagal");
+      alert(data.message);
     }
   } catch (error) {
     console.error("Gagal koneksi:", error);

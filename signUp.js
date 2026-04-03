@@ -23,9 +23,9 @@ async function getDataUp() {
     const data = await res.json();
 
     if (data.status) {
-      alert("Akun berhasil di buat");
+      alert(data.message);
     } else {
-      alert("Akun gagal di buat, Email sudah terdaftar");
+      alert(data.message);
     }
   } catch (error) {
     console.error("Gagal koneksi:", error);

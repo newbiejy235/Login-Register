@@ -52,8 +52,8 @@ async function getVerif() {
 
     if (datas.status) {
       alert("Password berhasil diganti");
-    } else {
-      alert("Gagal mengubah");
+    } else if (!datas.OK) {
+      alert("Kode verifikasi salah!!");
     }
   } catch (error) {
     console.error("koneksi gagal", error);

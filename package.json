@@ -4,8 +4,9 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon src/server/main.js",
-    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "start": "node src/server/main.js",
+    "dev": "nodemon src/server/main.js",
+    "front": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
