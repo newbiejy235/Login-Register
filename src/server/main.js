@@ -51,6 +51,9 @@ const transporter = nodemailer.createTransport({
     pass: process.env.GMAIL_PASS
       ? process.env.GMAIL_PASS.replace(/\s+/g, "")
       : "",
+    connectionTimeout: 10000, // 10 detik limit
+    greetingTimeout: 10000,
+    socketTimeout: 10000,
   },
 });
 
