@@ -41,21 +41,36 @@ app.post("/signUp", (req, res) => {
 });
 
 // UNTUK SEND EMAIL
+// const transporter = nodemailer.createTransport({
+//   service: "gmail",
+//   host: "://gmail.com",
+//   port: 465,
+//   secure: true, // Pakai SSL
+//   auth: {
+//     user: process.env.GMAIL_USER,
+//     pass: process.env.GMAIL_PASS
+//       ? process.env.GMAIL_PASS.replace(/\s+/g, "")
+//       : "",
+//     connectionTimeout: 10000, // 10 detik limit
+//     greetingTimeout: 10000,
+//     socketTimeout: 10000,
+//   },
+// });
+
 const transporter = nodemailer.createTransport({
-  service: "gmail",
-  host: "://gmail.com",
+  host: "smtp.gmail.com",
   port: 465,
-  secure: true, // Pakai SSL
+  secure: true, 
   auth: {
     user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS
-      ? process.env.GMAIL_PASS.replace(/\s+/g, "")
-      : "",
-    connectionTimeout: 10000, // 10 detik limit
-    greetingTimeout: 10000,
-    socketTimeout: 10000,
+    pass: process.env.GMAIL_PASS ? process.env.GMAIL_PASS.replace(/\s+/g, "").trim() : ""
   },
+  connectionTimeout: 10000, 
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
+  dnsFaces: "v4" // PAKSA IPv4 BIAR GAK ENETUNREACH
 });
+
 
 app.post("/request-reset", (req, res) => {
   const { username } = req.body;
