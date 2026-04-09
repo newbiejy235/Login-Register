@@ -1,7 +1,10 @@
 const cors = require("cors");
 
 const corsOptions = {
-  origin: ["http://localhost:4000", "http://127.0.0.1:5500"],
+  origin: [
+    "https://login-register-production-af71.up.railway.app/",
+    "https://login-register-production-af71.up.railway.app/recov.html",
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 };
